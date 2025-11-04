@@ -1,0 +1,44 @@
+$light: (
+        primary: #007bff,
+        background: #ffffff,
+        text: #111111,
+);
+$dark: (
+        primary: #0d6efd,
+        background: #121212,
+        text: #f5f5f5,
+);
+$blue: (
+        primary: #1e90ff,
+        background: #f0f8ff,
+        text: #0b172a,
+);
+$green: (
+        primary: #16a34a,
+        background: #f0fff4,
+        text: #064e3b,
+);
+
+:root {
+        @each $name, $value in $light {
+                #{$name}: #{$value};
+        }
+}
+
+.dark {
+        @each $name, $value in $dark {
+                #{$name}: #{$value};
+        }
+}
+
+.green {
+        @each $name, $value in $green {
+                #{$name}: #{$value};
+        }
+}
+
+.blue {
+        @each $name, $value in $blue {
+                #{$name}: #{$value};
+        }
+}

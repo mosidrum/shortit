@@ -1,0 +1,36 @@
+@use './variables' as *;
+
+@mixin generate-spacing-positive($property, $prefix) {
+  @for $i from 1 through 10 {
+    .#{$prefix}-#{$i} {
+      #{$property}: $i * $base-unit;
+    }
+  }
+}
+
+@mixin generate-spacing-negative($property, $prefix) {
+  @for $i from -10 through -1 {
+    .#{$prefix}-#{$i} {
+      #{$property}: $i * $base-unit;
+    }
+  }
+}
+
+@include generate-spacing-positive(margin, m);
+@include generate-spacing-positive(margin-top, mt);
+@include generate-spacing-positive(margin-left, ml);
+@include generate-spacing-positive(margin-bottom, mb);
+@include generate-spacing-positive(margin-right, mr);
+
+@include generate-spacing-positive(padding, p);
+@include generate-spacing-positive(padding-top, pt);
+@include generate-spacing-positive(padding-bottom, pb);
+@include generate-spacing-positive(padding-right, pr);
+@include generate-spacing-positive(padding-left, pl);
+
+@include generate-spacing-positive(top, top);
+@include generate-spacing-positive(bottom, bottom);
+@include generate-spacing-positive(right, right);
+@include generate-spacing-positive(left, left);
+
+
