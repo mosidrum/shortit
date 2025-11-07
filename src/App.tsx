@@ -3,6 +3,7 @@
 import { Link } from 'lucide-react';
 
 import styles from './App.module.scss';
+import { ThemeToggle } from './components';
 
 export const App = () => (
   <div className={styles.landingPage}>
@@ -16,6 +17,7 @@ export const App = () => (
           <a href="/dashboard" className={styles.signinLink}>
             Sign in
           </a>
+          <ThemeToggle />
         </nav>
       </div>
     </header>

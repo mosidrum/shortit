@@ -1,0 +1,33 @@
+.themeSelect {
+  appearance: none;
+  background: var(--background);
+  color: var(--text);
+  border-radius: 9999px;
+  padding: 6px 28px 6px 10px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  outline: none;
+  border: none;
+  position: relative;
+
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  background-size: 12px;
+
+  &:hover {
+    border-color: var(--primary);
+    transform: translateY(-1px);
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 2px rgba(0,0,0,0.1);
+  }
+
+  option {
+    background: var(--background);
+    color: var(--text);
+    outline: none;
+    border: none;
+  }
+}
