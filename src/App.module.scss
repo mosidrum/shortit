@@ -1,8 +1,9 @@
-.landingpage {
+
+.landingPage {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: #f8f9fa;
+  background: var(--backgorund);
 }
 
 .header {
@@ -10,7 +11,7 @@
   position: relative;
   z-index: 10;
 
-  .headercontent {
+  .headerContent {
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
@@ -24,11 +25,10 @@
     gap: 8px;
     color: #111;
 
-    .logotext {
+    .logoText {
       font-family: 'Inter', sans-serif;
       font-size: 16px;
       font-weight: 700;
-      //letter-spacing: -0.02em;
     }
   }
 
@@ -37,7 +37,7 @@
     align-items: center;
     gap: 24px;
 
-    .signinlink {
+    .signinLink {
       font-family: 'Inter', sans-serif;
       font-size: 16px;
       font-weight: 500;
@@ -97,7 +97,7 @@
       flex-direction: column;
       gap: 12px;
 
-      .inputcontainer {
+      .inputContainer {
         display: flex;
         flex-direction: column;
         gap: 12px;
@@ -113,7 +113,7 @@
           box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
         }
 
-        .urlinput {
+        .urlInput {
           width: 100%;
           padding: 12px;
           font-family: 'Inter', sans-serif;
@@ -134,7 +134,7 @@
           }
         }
 
-        .shortenbutton {
+        .shortenButton {
           padding: 12px 24px;
           font-family: 'Inter', sans-serif;
           font-size: 16px;
@@ -159,7 +159,7 @@
     .result {
       animation: fadeInUp 0.5s ease-out forwards;
 
-      .resultcontainer {
+      .resultContainer {
         display: flex;
         align-items: center;
         gap: 12px;
@@ -169,7 +169,7 @@
         border-radius: 12px;
         margin-top: 16px;
 
-        .resulturl {
+        .resultUrl {
           flex: 1;
           font-family: 'Inter', sans-serif;
           font-size: 16px;
@@ -179,7 +179,7 @@
           word-break: break-all;
         }
 
-        .copybutton {
+        .copyButton {
           padding: 8px;
           color: #2563eb;
           background: transparent;
