@@ -1,3 +1,5 @@
+@use './styles/_variables.scss' as *;
+
 .landingPage {
   min-height: 100vh;
   display: flex;
@@ -28,18 +30,14 @@
   .nav {
     display: flex;
     align-items: center;
-    gap: 24px;
+    gap: 8px;
 
     .signinLink {
-      font-size: 16px;
-      font-weight: 500;
-      color: #666;
+      font-size: $font-body;
+      font-weight: $font-normal;
+      color: var(--default);
       text-decoration: none;
       transition: color 0.2s ease;
-
-      &:hover {
-        color: #111;
-      }
     }
   }
 }
@@ -82,34 +80,31 @@
         flex-direction: column;
         gap: 12px;
         padding: 24px;
-        background: #fff;
-        border: 2px solid #ddd;
+        background: var(--background-secondary);
+        border: 2px solid var(--border);
         border-radius: 16px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        transition: all 0.3s ease;
 
         &:focus-within {
-          border-color: #2563eb;
-          box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+          border-color: var(--active-border);
         }
 
         .urlInput {
           width: 100%;
           padding: 12px;
           font-size: 16px;
-          color: #111;
+          color: var(--text);
           background: transparent;
-          border: 1px solid #ccc;
+          border: 1px solid var(--border);
           border-radius: 12px;
           transition: all 0.2s ease;
 
           &::placeholder {
-            color: #999;
+            color: var(--secondary);
           }
 
           &:focus {
             outline: none;
-            border-color: #2563eb;
+            border-color: var(--active-border);
           }
         }
 
@@ -117,8 +112,8 @@
           padding: 12px 24px;
           font-size: 16px;
           font-weight: 600;
-          color: #fff;
-          background: #2563eb;
+          color: var(--button-color);
+          background: var(--button-bg);
           border: none;
           border-radius: 12px;
           cursor: pointer;
@@ -127,7 +122,6 @@
           min-width: 120px;
 
           &:hover {
-            background: #1d4ed8;
             transform: translateY(-1px);
           }
         }
@@ -142,8 +136,8 @@
         align-items: center;
         gap: 12px;
         padding: 16px 24px;
-        background: #e0f2fe;
-        border: 1px solid #38bdf8;
+        background: var(--background-secondary);
+        border: 1px solid var(--border);
         border-radius: 12px;
         margin-top: 16px;
 
@@ -151,23 +145,21 @@
           flex: 1;
           font-size: 16px;
           font-weight: 500;
-          color: #111;
+          color: var(--text);
           text-align: left;
-          word-break: break-all;
         }
 
         .copyButton {
           padding: 8px;
-          color: #2563eb;
-          background: transparent;
-          border: 1px solid #2563eb;
+          color: var(--button-color);
+          background: var(--button-bg);
+          border: 1px solid var(--border);
           border-radius: 8px;
           cursor: pointer;
           transition: all 0.2s ease;
 
           &:hover {
-            background: #2563eb;
-            color: #fff;
+            transform: translateY(-1px);
           }
         }
       }

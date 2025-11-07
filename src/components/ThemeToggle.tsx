@@ -1,6 +1,6 @@
 'use client';
 
-import { type ChangeEvent, useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import styles from './ThemeToggle.module.scss';
 
@@ -15,6 +15,7 @@ type Theme = (typeof themes)[number]['name'];
 
 export const ThemeToggle = () => {
   const [theme, setTheme] = useState<Theme>('light');
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     const saved = localStorage.getItem('theme') as Theme | null;
@@ -24,25 +25,31 @@ export const ThemeToggle = () => {
     document.documentElement.className = initial;
   }, []);
 
-  const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
-    const selected = e.target.value as Theme;
-    setTheme(selected);
-    document.documentElement.className = selected;
-    localStorage.setItem('theme', selected);
+  const handleSelect = (t: Theme) => {
+    setTheme(t);
+    document.documentElement.className = t;
+    localStorage.setItem('theme', t);
+    setOpen(false);
   };
 
   return (
-    <select
-      value={theme}
-      onChange={handleChange}
-      className={styles.themeSelect}
-      aria-label="Select theme"
-    >
-      {themes.map(t => (
-        <option key={t.name} value={t.name}>
-          {t.icon}
-        </option>
-      ))}
-    </select>
+    <div className={styles.wrapper}>
+      <div className={styles.current} onClick={() => setOpen(!open)}>
+        <span>{themes.find(t => t.name === theme)?.icon}</span>
+      </div>
+      {open && (
+        <div className={styles.dropdown}>
+          {themes.map(t => (
+            <div
+              key={t.name}
+              className={`${styles.item} ${theme === t.name ? styles.active : ''}`}
+              onClick={() => handleSelect(t.name)}
+            >
+              <span>{t.icon}</span>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
   );
 };

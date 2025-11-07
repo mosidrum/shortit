@@ -1,25 +1,56 @@
-.themeSelect {
-  appearance: none;
-  background: var(--background);
-  color: var(--text);
+.wrapper {
+  position: relative;
+  display: inline-block;
+  user-select: none;
+}
+
+.current {
   cursor: pointer;
-  transition: all 0.25s ease;
-  outline: none;
-  border: none;
+  font-size: 1.4rem;
+  padding: 4px 8px;
+  background: var(--background);
+  transition: all 0.2s ease;
 
   &:hover {
-    border-color: var(--primary);
-    transform: translateY(-1px);
+    transform: scale(1.05);
+  }
+}
+
+.dropdown {
+  position: absolute;
+  top: 110%;
+  right: 0;
+  background: var(--background);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  z-index: 10;
+  animation: fadeIn 0.15s ease-in-out;
+}
+
+.item {
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background 0.2s ease;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.05);
   }
 
-  &:focus {
-    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+  &.active {
+    font-weight: 600;
   }
+}
 
-  option {
-    background: var(--background);
-    color: var(--text);
-    outline: none;
-    border: none;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

@@ -11,14 +11,12 @@ export const App = () => (
       <div className={styles.headerContent}>
         <div className={styles.logo}>
           <Link size={20} />
-          <Text fontSize="fs-base" fontWeight="bold">
+          <Text fontSize="fs-lg" fontWeight="bold">
             SmartUrls
           </Text>
         </div>
         <nav className={styles.nav}>
-          <a href="/dashboard" className={styles.signinLink}>
-            Sign in
-          </a>
+          <Text fontSize="fs-lg">Sign In</Text>
           <ThemeToggle />
         </nav>
       </div>
@@ -58,7 +56,9 @@ export const App = () => (
     </main>
 
     <footer className={styles.footer}>
-      <p className={styles.footerText}>Isaac Ayodele ©</p>
+      <Text fontSize="base" fontStyle="underline" className={styles.footerText}>
+        Isaac Ayodele ©
+      </Text>
     </footer>
   </div>
 );
