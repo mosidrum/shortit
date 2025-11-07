@@ -1,0 +1,66 @@
+@use '../styles/_mixins.scss' as *;
+@use '../styles/variables.scss' as *;
+
+.fs-2xl {
+  @include responsive-font($font-xLarge, $font-Large, $font-medium);
+}
+
+.fs-xl {
+  @include responsive-font($font-Large, $font-medium, $font-body);
+}
+
+.fs-lg {
+  @include responsive-font($font-medium, $font-body, $font-small);
+}
+
+.fs-base {
+  @include responsive-font($font-body, $font-small, $font-xSmall);
+}
+
+.fs-sm {
+  @include responsive-font($font-small, $font-xSmall, $font-xSmall);
+}
+
+.fs-xs {
+  @include responsive-font($font-xSmall, $font-xSmall, $font-xSmall);
+}
+
+.bold {
+  font-weight: $font-bold;
+}
+
+.normal {
+  font-weight: $font-normal;
+}
+
+.bolder {
+  font-weight: $font-bolder;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.default {
+  color: var(--text);
+}
+
+.primary {
+  color: var(--primary);
+}
+
+.secondary {
+  color: var(--secondary);
+}
+
+.success {
+  color: var(--success);
+}
+
+.error {
+  color: var(--error);
+}

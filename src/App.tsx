@@ -3,7 +3,7 @@
 import { Link } from 'lucide-react';
 
 import styles from './App.module.scss';
-import { ThemeToggle } from './components';
+import { Text, ThemeToggle } from './components';
 
 export const App = () => (
   <div className={styles.landingPage}>
@@ -11,7 +11,9 @@ export const App = () => (
       <div className={styles.headerContent}>
         <div className={styles.logo}>
           <Link size={20} />
-          <span className={styles.logoText}>SmartUrls</span>
+          <Text fontSize="fs-base" fontWeight="bold">
+            SmartUrls
+          </Text>
         </div>
         <nav className={styles.nav}>
           <a href="/dashboard" className={styles.signinLink}>
@@ -25,12 +27,12 @@ export const App = () => (
     <main className={styles.main}>
       <div className={styles.content}>
         <div className={styles.hero}>
-          <h1 className={styles.title}>
+          <Text fontSize="fs-2xl" fontWeight="bolder" variant="default" className={styles.title}>
             Shorten your <span className={styles.highlight}>URLs,</span> not your time ⏰
-          </h1>
-          <p className={styles.subtitle}>
+          </Text>
+          <Text fontSize="fs-base" fontStyle="italic" className={styles.subtitle}>
             Because life’s too short for long links, get sleek, smart URLs in a snap.
-          </p>
+          </Text>
         </div>
 
         <form className={styles.form}>

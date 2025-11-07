@@ -40,7 +40,7 @@ export const ThemeToggle = () => {
     >
       {themes.map(t => (
         <option key={t.name} value={t.name}>
-          {t.icon} {t.name}
+          {t.icon}
         </option>
       ))}
     </select>
