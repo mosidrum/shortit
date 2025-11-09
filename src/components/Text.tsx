@@ -6,17 +6,17 @@ import type { ReactNode } from 'react';
 
 type Props = {
   children: ReactNode;
-  fontSize: 'fs-2xl' | 'fs-xl' | 'fs-lg' | 'fs-base' | 'fs-sm' | 'fs-xs';
-  fontWeight: 'bolder' | 'bold' | 'normal';
-  fontStyle: 'italic' | 'underline' | 'normal';
-  variant: 'default' | 'primary' | 'secondary' | 'success' | 'error';
+  fontSize?: 'fs-2xl' | 'fs-xl' | 'fs-lg' | 'fs-base' | 'fs-sm' | 'fs-xs';
+  fontWeight?: 'bolder' | 'bold' | 'normal';
+  fontStyle?: 'italic' | 'underline' | 'normal';
+  variant?: 'default' | 'primary' | 'secondary' | 'success' | 'error';
   onClick?: () => void;
   className?: string;
 };
 
 export const Text = ({
   fontWeight = 'normal',
-  fontSize = 'base',
+  fontSize = 'fs-base',
   fontStyle = 'normal',
   variant = 'default',
   onClick,
