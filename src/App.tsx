@@ -1,28 +1,51 @@
 'use client';
 
+import { Formik, Form, Field, ErrorMessage, type FormikHelpers } from 'formik';
 import { Link } from 'lucide-react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import * as Yup from 'yup';
 
 import { apiClient } from './api';
 import styles from './App.module.scss';
 import { Text, ThemeToggle } from './components';
+import { toast } from './utils';
 
 import type { UrlType } from './types';
+
+type formValueType = {
+  url: string;
+};
+
+const initialValues: formValueType = {
+  url: ''
+};
+
+const validationSchema = Yup.object({
+  url: Yup.string().url('Enter a valid website URL.').required('Website URL is required.')
+});
+
+const handleSubmit = async (values: formValueType, { resetForm }: FormikHelpers<formValueType>) => {
+  resetForm();
+  const { data } = await apiClient.post('/urls', { originalUrl: values.url });
+  toast.success(data.message);
+};
 
 export const App = () => {
   const [url, setUrl] = useState<UrlType | null>(null);
   const [copied, setCopied] = useState(false);
 
-  (async () => {
-    const { data } = await apiClient.get('/urls');
-    setUrl(data.data[0]);
-  })();
+  useEffect(() => {
+    (async () => {
+      const { data } = await apiClient.get('/urls');
+      setUrl(data.data[0]);
+    })();
+  }, []);
 
   const handleCopy = () => {
     if (!url) return;
     navigator.clipboard.writeText(url.shortUrl);
     setCopied(true);
-    setTimeout(() => setCopied(false), 3000); // reset after 3s
+    setTimeout(() => setCopied(false), 3000);
   };
 
   return (
@@ -53,18 +76,27 @@ export const App = () => {
             </Text>
           </div>
 
-          <form className={styles.form}>
-            <div className={styles.inputContainer}>
-              <input
-                type="text"
-                placeholder="Paste your long URL here..."
-                className={styles.urlInput}
-              />
-              <button type="submit" className={styles.shortenButton}>
-                Shorten
-              </button>
-            </div>
-          </form>
+          <Formik
+            initialValues={initialValues}
+            validationSchema={validationSchema}
+            onSubmit={handleSubmit}
+          >
+            <Form className={styles.form}>
+              <div className={styles.inputContainer}>
+                <Field
+                  type="url"
+                  id="url"
+                  name="url"
+                  className={styles.urlInput}
+                  placeholder="Paste your long URL here..."
+                />
+                <ErrorMessage name="url" component="div" className={styles.error} />
+                <button type="submit" className={styles.shortenButton}>
+                  Shorten
+                </button>
+              </div>
+            </Form>
+          </Formik>
 
           <div className={styles.result}>
             <div className={styles.resultContainer}>
